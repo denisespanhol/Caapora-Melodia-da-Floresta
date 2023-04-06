@@ -19,6 +19,7 @@ public class AnimationTime : MonoBehaviour
     IEnumerator WaitingTime()
     {
         yield return new WaitForSeconds(timeToWait);
+
         transparencyAnimation.SetBool("isTime", true);
     }
 }
