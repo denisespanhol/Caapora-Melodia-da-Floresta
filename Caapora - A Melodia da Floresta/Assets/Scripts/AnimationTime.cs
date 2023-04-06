@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class AnimationTime : MonoBehaviour
 {
+    private Animator transparencyAnimation;
+
+    public float timeToWait;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        transparencyAnimation = GetComponent<Animator>();
+
+        StartCoroutine(WaitingTime());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator WaitingTime()
     {
-        
+        yield return new WaitForSeconds(timeToWait);
+        transparencyAnimation.SetBool("isTime", true);
     }
 }
